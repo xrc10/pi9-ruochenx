@@ -11,7 +11,7 @@ public class RandomUtils {
   static {
     // Use the same seed intentionally for your consistent error analysis work.
     // You can change this seed if you want to.
-    rand = new Random(3);
+    rand = new Random(12345678);
   }
 
   public static <T> List<T> getRandomSubset(List<T> org, int num) {

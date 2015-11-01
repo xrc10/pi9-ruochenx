@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** 
- * Updated by JCasGen Mon Oct 26 23:48:33 EDT 2015
- * XML source: /home/junaraki/git/f15-11-791/template-projects/pi9/pi9-andrewid/src/main/resources/descriptors/typeSystem.xml
+ * Updated by JCasGen Thu Oct 08 22:31:01 EDT 2015
+ * XML source: /home/ruochenx/git/pi6-ruochenx/pi6-ruochenx/src/main/resources/descriptors/typeSystem.xml
  * @generated */
 public class Measurement extends TOP {
   /** @generated
@@ -65,91 +65,69 @@ public class Measurement extends TOP {
  
     
   //*--------------*
-  //* Feature: precisionAt1
+  //* Feature: tp
 
-  /** getter for precisionAt1 - gets Precision@1
+  /** getter for tp - gets The number of true positives
    * @generated
    * @return value of the feature 
    */
-  public double getPrecisionAt1() {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_precisionAt1 == null)
-      jcasType.jcas.throwFeatMissing("precisionAt1", "type.Measurement");
-    return jcasType.ll_cas.ll_getDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_precisionAt1);}
+  public int getTp() {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_tp == null)
+      jcasType.jcas.throwFeatMissing("tp", "type.Measurement");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_tp);}
     
-  /** setter for precisionAt1 - sets Precision@1 
+  /** setter for tp - sets The number of true positives 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPrecisionAt1(double v) {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_precisionAt1 == null)
-      jcasType.jcas.throwFeatMissing("precisionAt1", "type.Measurement");
-    jcasType.ll_cas.ll_setDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_precisionAt1, v);}    
+  public void setTp(int v) {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_tp == null)
+      jcasType.jcas.throwFeatMissing("tp", "type.Measurement");
+    jcasType.ll_cas.ll_setIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_tp, v);}    
    
     
   //*--------------*
-  //* Feature: precisionAt5
+  //* Feature: fn
 
-  /** getter for precisionAt5 - gets Precision@5
+  /** getter for fn - gets The number of false negatives
    * @generated
    * @return value of the feature 
    */
-  public double getPrecisionAt5() {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_precisionAt5 == null)
-      jcasType.jcas.throwFeatMissing("precisionAt5", "type.Measurement");
-    return jcasType.ll_cas.ll_getDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_precisionAt5);}
+  public int getFn() {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_fn == null)
+      jcasType.jcas.throwFeatMissing("fn", "type.Measurement");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_fn);}
     
-  /** setter for precisionAt5 - sets Precision@5 
+  /** setter for fn - sets The number of false negatives 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPrecisionAt5(double v) {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_precisionAt5 == null)
-      jcasType.jcas.throwFeatMissing("precisionAt5", "type.Measurement");
-    jcasType.ll_cas.ll_setDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_precisionAt5, v);}    
+  public void setFn(int v) {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_fn == null)
+      jcasType.jcas.throwFeatMissing("fn", "type.Measurement");
+    jcasType.ll_cas.ll_setIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_fn, v);}    
    
     
   //*--------------*
-  //* Feature: reciprocalRank
+  //* Feature: fp
 
-  /** getter for reciprocalRank - gets Reciprocal rank
+  /** getter for fp - gets The number of false positives
    * @generated
    * @return value of the feature 
    */
-  public double getReciprocalRank() {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_reciprocalRank == null)
-      jcasType.jcas.throwFeatMissing("reciprocalRank", "type.Measurement");
-    return jcasType.ll_cas.ll_getDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_reciprocalRank);}
+  public int getFp() {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_fp == null)
+      jcasType.jcas.throwFeatMissing("fp", "type.Measurement");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_fp);}
     
-  /** setter for reciprocalRank - sets Reciprocal rank 
+  /** setter for fp - sets The number of false positives 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setReciprocalRank(double v) {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_reciprocalRank == null)
-      jcasType.jcas.throwFeatMissing("reciprocalRank", "type.Measurement");
-    jcasType.ll_cas.ll_setDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_reciprocalRank, v);}    
-   
-    
-  //*--------------*
-  //* Feature: averagePrecision
-
-  /** getter for averagePrecision - gets Average precision
-   * @generated
-   * @return value of the feature 
-   */
-  public double getAveragePrecision() {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_averagePrecision == null)
-      jcasType.jcas.throwFeatMissing("averagePrecision", "type.Measurement");
-    return jcasType.ll_cas.ll_getDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_averagePrecision);}
-    
-  /** setter for averagePrecision - sets Average precision 
-   * @generated
-   * @param v value to set into the feature 
-   */
-  public void setAveragePrecision(double v) {
-    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_averagePrecision == null)
-      jcasType.jcas.throwFeatMissing("averagePrecision", "type.Measurement");
-    jcasType.ll_cas.ll_setDoubleValue(addr, ((Measurement_Type)jcasType).casFeatCode_averagePrecision, v);}    
+  public void setFp(int v) {
+    if (Measurement_Type.featOkTst && ((Measurement_Type)jcasType).casFeat_fp == null)
+      jcasType.jcas.throwFeatMissing("fp", "type.Measurement");
+    jcasType.ll_cas.ll_setIntValue(addr, ((Measurement_Type)jcasType).casFeatCode_fp, v);}    
   }
 
     

@@ -7,12 +7,15 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
+import org.apache.uima.jcas.cas.FSArray;
+
+
 import org.apache.uima.jcas.cas.FSList;
 
 
 /** Stores all the questions and its associated answer candidates.
- * Updated by JCasGen Mon Oct 26 23:48:33 EDT 2015
- * XML source: /home/junaraki/git/f15-11-791/template-projects/pi9/pi9-andrewid/src/main/resources/descriptors/typeSystem.xml
+ * Updated by JCasGen Thu Oct 08 22:31:01 EDT 2015
+ * XML source: /home/ruochenx/git/pi6-ruochenx/pi6-ruochenx/src/main/resources/descriptors/typeSystem.xml
  * @generated */
 public class InputDocument extends ComponentAnnotation {
   /** @generated
@@ -83,19 +86,41 @@ public class InputDocument extends ComponentAnnotation {
    * @generated
    * @return value of the feature 
    */
-  public FSList getPassages() {
+  public FSArray getPassages() {
     if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_passages == null)
       jcasType.jcas.throwFeatMissing("passages", "type.InputDocument");
-    return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages)));}
+    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages)));}
     
   /** setter for passages - sets All the passages found in the input file. 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPassages(FSList v) {
+  public void setPassages(FSArray v) {
     if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_passages == null)
       jcasType.jcas.throwFeatMissing("passages", "type.InputDocument");
     jcasType.ll_cas.ll_setRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages, jcasType.ll_cas.ll_getFSRef(v));}    
+    
+  /** indexed getter for passages - gets an indexed value - All the passages found in the input file.
+   * @generated
+   * @param i index in the array to get
+   * @return value of the element at index i 
+   */
+  public Passage getPassages(int i) {
+    if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_passages == null)
+      jcasType.jcas.throwFeatMissing("passages", "type.InputDocument");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages), i);
+    return (Passage)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages), i)));}
+
+  /** indexed setter for passages - sets an indexed value - All the passages found in the input file.
+   * @generated
+   * @param i index in the array to set
+   * @param v value to set into the array 
+   */
+  public void setPassages(int i, Passage v) { 
+    if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_passages == null)
+      jcasType.jcas.throwFeatMissing("passages", "type.InputDocument");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages), i);
+    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_passages), i, jcasType.ll_cas.ll_getFSRef(v));}
    
     
   //*--------------*
@@ -105,19 +130,41 @@ public class InputDocument extends ComponentAnnotation {
    * @generated
    * @return value of the feature 
    */
-  public FSList getQuestions() {
+  public FSArray getQuestions() {
     if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_questions == null)
       jcasType.jcas.throwFeatMissing("questions", "type.InputDocument");
-    return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions)));}
+    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions)));}
     
   /** setter for questions - sets All the questions found in the input file. 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setQuestions(FSList v) {
+  public void setQuestions(FSArray v) {
     if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_questions == null)
       jcasType.jcas.throwFeatMissing("questions", "type.InputDocument");
     jcasType.ll_cas.ll_setRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions, jcasType.ll_cas.ll_getFSRef(v));}    
+    
+  /** indexed getter for questions - gets an indexed value - All the questions found in the input file.
+   * @generated
+   * @param i index in the array to get
+   * @return value of the element at index i 
+   */
+  public Question getQuestions(int i) {
+    if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_questions == null)
+      jcasType.jcas.throwFeatMissing("questions", "type.InputDocument");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions), i);
+    return (Question)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions), i)));}
+
+  /** indexed setter for questions - sets an indexed value - All the questions found in the input file.
+   * @generated
+   * @param i index in the array to set
+   * @param v value to set into the array 
+   */
+  public void setQuestions(int i, Question v) { 
+    if (InputDocument_Type.featOkTst && ((InputDocument_Type)jcasType).casFeat_questions == null)
+      jcasType.jcas.throwFeatMissing("questions", "type.InputDocument");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions), i);
+    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((InputDocument_Type)jcasType).casFeatCode_questions), i, jcasType.ll_cas.ll_getFSRef(v));}
   }
 
     

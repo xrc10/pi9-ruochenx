@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** Stores the information of the passage.
- * Updated by JCasGen Mon Oct 26 23:48:33 EDT 2015
+ * Updated by JCasGen Thu Oct 08 22:31:02 EDT 2015
  * @generated */
 public class Passage_Type extends ComponentAnnotation_Type {
   /** @generated 
@@ -118,26 +118,26 @@ public class Passage_Type extends ComponentAnnotation_Type {
   
  
   /** @generated */
-  final Feature casFeat_question;
+  final Feature casFeat_questionId;
   /** @generated */
-  final int     casFeatCode_question;
+  final int     casFeatCode_questionId;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public int getQuestion(int addr) {
-        if (featOkTst && casFeat_question == null)
-      jcas.throwFeatMissing("question", "type.Passage");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_question);
+  public String getQuestionId(int addr) {
+        if (featOkTst && casFeat_questionId == null)
+      jcas.throwFeatMissing("questionId", "type.Passage");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_questionId);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setQuestion(int addr, int v) {
-        if (featOkTst && casFeat_question == null)
-      jcas.throwFeatMissing("question", "type.Passage");
-    ll_cas.ll_setRefValue(addr, casFeatCode_question, v);}
+  public void setQuestionId(int addr, String v) {
+        if (featOkTst && casFeat_questionId == null)
+      jcas.throwFeatMissing("questionId", "type.Passage");
+    ll_cas.ll_setStringValue(addr, casFeatCode_questionId, v);}
     
   
 
@@ -165,8 +165,8 @@ public class Passage_Type extends ComponentAnnotation_Type {
     casFeatCode_sourceDocId  = (null == casFeat_sourceDocId) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_sourceDocId).getCode();
 
  
-    casFeat_question = jcas.getRequiredFeatureDE(casType, "question", "type.Question", featOkTst);
-    casFeatCode_question  = (null == casFeat_question) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_question).getCode();
+    casFeat_questionId = jcas.getRequiredFeatureDE(casType, "questionId", "uima.cas.String", featOkTst);
+    casFeatCode_questionId  = (null == casFeat_questionId) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_questionId).getCode();
 
   }
 }

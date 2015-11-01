@@ -20,10 +20,8 @@ public class Main {
     // Remember to set your ARGS while running the configuration
     // arg[0] is the INPUT_DIRECTORY where the passages and questions are located
     // arg[1] is the OUTPUT_DIRECTORY where the results will be stored
-    // arg[2] is the number of folds for cross validation
     String inputDir = args[0];
     String outputDir = args[1];
-    int numFolds = Integer.parseInt(args[2]);
 
     // Instantiate CPE.
     CpeDescription cpeDesc = UIMAFramework.getXMLParser()
@@ -44,7 +42,6 @@ public class Main {
     // mCPE.getCasProcessors().
     ConfigurableResource cc = (ConfigurableResource) mCPE.getCasProcessors()[1]; // <-- Careful with index
     cc.setConfigParameterValue("OutputDir", outputDir);
-    cc.setConfigParameterValue("NumFolds", numFolds);
     cc.reconfigure();
 
     // Create and register a Status Callback Listener.

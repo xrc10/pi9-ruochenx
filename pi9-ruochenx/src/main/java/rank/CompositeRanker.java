@@ -11,18 +11,12 @@ public class CompositeRanker extends AbstractRanker implements IAggregator {
   /** Individual rankers */
   private List<IRanker> rankers;
 
-  private List<Double> weights;
-
   public CompositeRanker() {
     rankers = new ArrayList<IRanker>();
   }
 
   public void addRanker(IRanker ranker) {
     rankers.add(ranker);
-  }
-
-  public void setWeights(List<Double> weights) {
-    this.weights = weights;
   }
 
   /**
@@ -37,6 +31,8 @@ public class CompositeRanker extends AbstractRanker implements IAggregator {
     List<Double> scores = new ArrayList<Double>();
     for (IRanker r : rankers) {
       scores.add(r.score(question, passage));
+//      System.out.println(r.getClass());
+//      System.out.println(r.score(question, passage));
     }
     return aggregateScores(scores);
   }
@@ -45,7 +41,15 @@ public class CompositeRanker extends AbstractRanker implements IAggregator {
   public Double aggregateScores(List<Double> scores) {
     // TODO Complete the implementation of this method.
 
-    return null;
+    // In PI7, compute the aggregated score by taking a weighted average of scores. Note that you
+    // can figure out which score comes from which ranker because the index of List object 'scores'
+    // corresponds to the index of List object 'rankers'.
+    double aggregScore = 0;
+    for (int i=0; i<scores.size(); i++) {
+      aggregScore += scores.get(i);
+    }
+    
+    return aggregScore/scores.size();
   }
 
 }

@@ -31,13 +31,13 @@ You need to implement the types requried for your ranking model.</description>
         <featureDescription>
           <name>passages</name>
           <description>All the passages found in the input file.</description>
-          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
           <elementType>type.Passage</elementType>
         </featureDescription>
         <featureDescription>
           <name>questions</name>
           <description>All the questions found in the input file.</description>
-          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
           <elementType>type.Question</elementType>
         </featureDescription>
       </features>
@@ -60,7 +60,7 @@ You need to implement the types requried for your ranking model.</description>
       <featureDescription>
           <name>passages</name>
           <description>Passages associated with this question.</description>
-          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
           <elementType>type.Passage</elementType>
         </featureDescription>
       <featureDescription>
@@ -91,9 +91,9 @@ You need to implement the types requried for your ranking model.</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       <featureDescription>
-          <name>question</name>
+          <name>questionId</name>
           <description>This denotes the corresponding question ID.</description>
-          <rangeTypeName>type.Question</rangeTypeName>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>
@@ -103,24 +103,68 @@ You need to implement the types requried for your ranking model.</description>
       <supertypeName>uima.cas.TOP</supertypeName>
       <features>
         <featureDescription>
-          <name>precisionAt1</name>
-          <description>Precision@1</description>
-          <rangeTypeName>uima.cas.Double</rangeTypeName>
+          <name>tp</name>
+          <description>The number of true positives</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
         </featureDescription>
         <featureDescription>
-          <name>precisionAt5</name>
-          <description>Precision@5</description>
-          <rangeTypeName>uima.cas.Double</rangeTypeName>
+          <name>fn</name>
+          <description>The number of false negatives</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
         </featureDescription>
         <featureDescription>
-          <name>reciprocalRank</name>
-          <description>Reciprocal rank</description>
-          <rangeTypeName>uima.cas.Double</rangeTypeName>
+          <name>fp</name>
+          <description>The number of false positives</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        </features>
+    </typeDescription>
+  <typeDescription>
+      <name>type.Token</name>
+      <description>Stores a token annotation.</description>
+      <supertypeName>type.ComponentAnnotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>type.Score</name>
+      <description>Store the score for all passages.</description>
+      <supertypeName>type.ComponentAnnotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>questions</name>
+          <description>The questions whose passages have been scored.</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>type.Question</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.Ngram</name>
+      <description>Stores the information about an n-gram.</description>
+      <supertypeName>type.ComponentAnnotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>n</name>
+          <description>The number of tokens in this n-gram.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
         </featureDescription>
         <featureDescription>
-          <name>averagePrecision</name>
-          <description>Average precision</description>
-          <rangeTypeName>uima.cas.Double</rangeTypeName>
+          <name>tokens</name>
+          <description>Tokens contained in this n-gram.</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>type.Token</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.Evaluation</name>
+      <description>Store the result of evaluation.</description>
+      <supertypeName>type.ComponentAnnotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>questions</name>
+          <description>The questions whose measurement is evaluated.</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>type.Question</elementType>
         </featureDescription>
       </features>
     </typeDescription>

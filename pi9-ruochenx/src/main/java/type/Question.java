@@ -7,14 +7,17 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
+import org.apache.uima.jcas.cas.FSArray;
+
+
 import org.apache.uima.jcas.cas.FSList;
 
 
 /** Stores the information about a question.
- * Updated by JCasGen Mon Oct 26 23:48:33 EDT 2015
- * XML source: /home/junaraki/git/f15-11-791/template-projects/pi9/pi9-andrewid/src/main/resources/descriptors/typeSystem.xml
+ * Updated by JCasGen Thu Oct 08 22:31:02 EDT 2015
+ * XML source: /home/ruochenx/git/pi6-ruochenx/pi6-ruochenx/src/main/resources/descriptors/typeSystem.xml
  * @generated */
-public class Question extends ComponentAnnotation {
+public class Question extends ComponentAnnotation implements Comparable {
   /** @generated
    * @ordered 
    */
@@ -127,19 +130,41 @@ public class Question extends ComponentAnnotation {
    * @generated
    * @return value of the feature 
    */
-  public FSList getPassages() {
+  public FSArray getPassages() {
     if (Question_Type.featOkTst && ((Question_Type)jcasType).casFeat_passages == null)
       jcasType.jcas.throwFeatMissing("passages", "type.Question");
-    return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages)));}
+    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages)));}
     
   /** setter for passages - sets Passages associated with this question. 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPassages(FSList v) {
+  public void setPassages(FSArray v) {
     if (Question_Type.featOkTst && ((Question_Type)jcasType).casFeat_passages == null)
       jcasType.jcas.throwFeatMissing("passages", "type.Question");
     jcasType.ll_cas.ll_setRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages, jcasType.ll_cas.ll_getFSRef(v));}    
+    
+  /** indexed getter for passages - gets an indexed value - Passages associated with this question.
+   * @generated
+   * @param i index in the array to get
+   * @return value of the element at index i 
+   */
+  public Passage getPassages(int i) {
+    if (Question_Type.featOkTst && ((Question_Type)jcasType).casFeat_passages == null)
+      jcasType.jcas.throwFeatMissing("passages", "type.Question");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages), i);
+    return (Passage)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages), i)));}
+
+  /** indexed setter for passages - sets an indexed value - Passages associated with this question.
+   * @generated
+   * @param i index in the array to set
+   * @param v value to set into the array 
+   */
+  public void setPassages(int i, Passage v) { 
+    if (Question_Type.featOkTst && ((Question_Type)jcasType).casFeat_passages == null)
+      jcasType.jcas.throwFeatMissing("passages", "type.Question");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages), i);
+    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((Question_Type)jcasType).casFeatCode_passages), i, jcasType.ll_cas.ll_getFSRef(v));}
    
     
   //*--------------*
@@ -162,6 +187,20 @@ public class Question extends ComponentAnnotation {
     if (Question_Type.featOkTst && ((Question_Type)jcasType).casFeat_measurement == null)
       jcasType.jcas.throwFeatMissing("measurement", "type.Question");
     jcasType.ll_cas.ll_setRefValue(addr, ((Question_Type)jcasType).casFeatCode_measurement, jcasType.ll_cas.ll_getFSRef(v));}    
+  
+  @Override
+  public int compareTo(Object compareAnnot) {
+    // TODO Auto-generated method stub
+    int compareId = Integer.parseInt(((Question) compareAnnot).getId());
+    if (compareId > Integer.parseInt(this.getId())) {
+      return -1;
+    } else if (compareId < Integer.parseInt(this.getId())) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }  
+
   }
 
     

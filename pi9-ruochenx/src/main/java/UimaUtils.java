@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.uima.fit.util.FSCollectionFactory;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.FSArray;
 import org.apache.uima.jcas.cas.FSList;
 import org.apache.uima.jcas.cas.TOP;
 
@@ -19,6 +20,13 @@ public class UimaUtils {
       return new ArrayList<T>();
     }
     return new ArrayList<T>(FSCollectionFactory.create(fslist, clazz));
+  }
+  
+  public static <T extends TOP> List<T> convertFSArraytToList(FSArray fsarray, Class<T> clazz) {
+    if (fsarray == null) {
+      return new ArrayList<T>();
+    }
+    return new ArrayList<T>(FSCollectionFactory.create(fsarray, clazz));
   }
 
   public static <T extends TOP> FSList convertCollectionToFSList(JCas aJCas,

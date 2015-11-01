@@ -15,7 +15,7 @@
     <description>This is a template (empty) descriptor for your Aggerate Analysis Engine.  You will need to specify your type system and capabilities, in addition to your individual analysis engines.</description>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
@@ -30,6 +30,8 @@
         <inputs/>
         <outputs>
           <type allAnnotatorFeatures="true">type.Question</type>
+        <type allAnnotatorFeatures="true">type.Passage</type>
+          <type allAnnotatorFeatures="true">type.InputDocument</type>
         </outputs>
         <languagesSupported/>
       </capability>

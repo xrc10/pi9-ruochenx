@@ -1,6 +1,7 @@
 package rank;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import type.Passage;
@@ -23,13 +24,21 @@ public abstract class AbstractRanker implements IRanker {
 
     // Score all the given passages and sort them in List object 'rankedPassages' below.
     List<Passage> rankedPassages = new ArrayList<Passage>();
-
+    for (int j = 0; j < passages.size(); j++) {
+      Passage passageAnnot = (Passage) passages.get(j);
+      Passage scorePassageAnnot = (Passage) passageAnnot.clone();
+      double simScore = score(question, passageAnnot);
+      scorePassageAnnot.setScore(simScore);
+      scorePassageAnnot.setComponentId(this.getClass().getName());
+      rankedPassages.add(scorePassageAnnot);
+    }
+    Collections.sort(rankedPassages);
     return rankedPassages;
   }
 
   /**
    * Returns a score of the given passage associated with the given question. A subclass needs to
-   * implement this method.
+   * implement this method. A subclass needs to implement this method.
    * 
    * @param question
    * @param passage
