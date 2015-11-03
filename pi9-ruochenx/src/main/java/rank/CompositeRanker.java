@@ -9,7 +9,9 @@ import type.Question;
 public class CompositeRanker extends AbstractRanker implements IAggregator {
 
   /** Individual rankers */
-  private List<IRanker> rankers;
+  public List<IRanker> rankers;
+  
+  private List<Double> weights;
 
   public CompositeRanker() {
     rankers = new ArrayList<IRanker>();
@@ -17,6 +19,10 @@ public class CompositeRanker extends AbstractRanker implements IAggregator {
 
   public void addRanker(IRanker ranker) {
     rankers.add(ranker);
+  }
+  
+  public void setWeights(List<Double> weights) {
+    this.weights = weights;
   }
 
   /**
@@ -46,10 +52,10 @@ public class CompositeRanker extends AbstractRanker implements IAggregator {
     // corresponds to the index of List object 'rankers'.
     double aggregScore = 0;
     for (int i=0; i<scores.size(); i++) {
-      aggregScore += scores.get(i);
+      aggregScore += scores.get(i)*weights.get(i);
     }
     
-    return aggregScore/scores.size();
+    return aggregScore;
   }
 
 }

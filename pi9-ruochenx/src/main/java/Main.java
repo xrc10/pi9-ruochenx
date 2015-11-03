@@ -22,12 +22,13 @@ public class Main {
     // arg[1] is the OUTPUT_DIRECTORY where the results will be stored
     String inputDir = args[0];
     String outputDir = args[1];
+    int numFolds = Integer.parseInt(args[2]);
 
     // Instantiate CPE.
     CpeDescription cpeDesc = UIMAFramework.getXMLParser()
             .parseCpeDescription(new XMLInputSource("src/main/resources/descriptors/cpeDescriptor.xml"));
     CollectionProcessingEngine mCPE = UIMAFramework.produceCollectionProcessingEngine(cpeDesc);
-
+    
     // Configure your collection reader with the given input directory. The code below assumes that
     // the collection reader has a parameter 'InputDir' to specify the input directory.
     ConfigurableResource cr = (ConfigurableResource) mCPE.getCollectionReader();
@@ -42,6 +43,7 @@ public class Main {
     // mCPE.getCasProcessors().
     ConfigurableResource cc = (ConfigurableResource) mCPE.getCasProcessors()[1]; // <-- Careful with index
     cc.setConfigParameterValue("OutputDir", outputDir);
+    cc.setConfigParameterValue("NumFolds", numFolds);
     cc.reconfigure();
 
     // Create and register a Status Callback Listener.
